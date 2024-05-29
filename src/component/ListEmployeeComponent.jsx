@@ -35,19 +35,19 @@ const ListEmployeeComponent = () => {
     return (
         <div>
             <h1>Employee List</h1>
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>first name</th>
-                        <th>last name</th>
-                        <th>email</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">first name</th>
+                        <th scope="col">last name</th>
+                        <th scope="col">email</th>
                     </tr>
                 </thead>
                 <tbody>
                     {employees.map(employee => (
                         <tr key={employee.id}>
-                            <td>{employee.id}</td>
+                            <td scope="row">{employee.id}</td>
                             <td>{employee.firstName}</td>
                             <td>{employee.lastName}</td>
                             <td>{employee.email}</td>
