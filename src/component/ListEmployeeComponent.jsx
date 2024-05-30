@@ -1,7 +1,12 @@
 import React, {useEffect, useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 const ListEmployeeComponent = () => {
+
     const [employees, setEmployees] = useState([]);
+
+    const navigator  = useNavigate();
+
     
 
     useEffect(() => {
@@ -30,11 +35,15 @@ const ListEmployeeComponent = () => {
         fetchEmployees();
     }, []); // Empty dependency array means this effect runs once when the component mounts
 
+    function addEmployee (){
+        navigator('/add-employee')
+    }
     
 
     return (
         <div>
             <h1>Employee List</h1>
+            <button type="button" class="btn btn-primary" onClick={addEmployee}>add employee</button>
             <table class="table">
                 <thead>
                     <tr>
