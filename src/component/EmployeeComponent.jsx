@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , useParams } from 'react-router-dom'
 
 const EmployeeComponent = () => {
 
     const [firstName , setFirstName] = useState('')
     const [lastName , setLastName] = useState('')
     const [email , setEmail] = useState('')
+
+    const {id} = useParams();
 
     const [errors , setErrors] = useState({
       firstName: '',
@@ -86,11 +88,22 @@ const EmployeeComponent = () => {
 
     }
 
+    function pageTitle(){
+      if (id){
+        return <h2>update employee</h2>
+      }else {
+        return <h2>add employee</h2>
+      }
+
+    }
+
   return (
     <div>
 
 <form>
-
+<div>
+{pageTitle()}
+</div>
   <div class="row mb-3">
     <label for="inputEmail3" class="col-sm-2 col-form-label">first name</label>
     <div class="col-sm-10">
